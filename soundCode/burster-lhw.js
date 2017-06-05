@@ -21,22 +21,42 @@
         drawDom : function () {
             var html = '';
             html += '<ul style="overflow: hidden;">';
+            html += '<li>'+ "<" +'</li>';
             for(var i = 0;i< this.totalPages;i++){
                 html += '<li>'+(i+1) + '</li>';
             }
+            html += '<li>'+ ">" +'</li>';
             html += '</ul>';
-            this.$html = $(html);
+
             this.$el.html(html);
+
         },
         setStyle : function () {
-            console.log(this.$html.find('li'));
-            this.$html.find('li').css({
-                'width' : '50px',
-                'float' : 'left',
-                'height' : '50px',
+            console.log(this.$el.find('li'));
+            this.$el.css({
+                'text-align' : 'center'
+            });
+            this.$el.find('*').css({
+                'padding' : '0',
+                'margin' : '0'
+            });
+            this.$el.find('ul').css({
+                'display' : 'inline-block',
+                'margin' : '0'
+            });
+            this.$el.find('li').css({
+                'width' : '30px',
+                'height' : '30px',
                 'border' : '1px solid #ccc',
-                'background-color' : '#fff'
-            })
+                'background-color' : '#fff',
+                'list-style' : 'none',
+                'float' : 'left',
+                'line-height' : '30px',
+                'cursor' : 'pointer'
+            });
+           /* this.$el.find('li.active').css({
+                'background-color' : '#23d6e2'
+            });*/
         }
     };
     Burster_lhw.prototype = proto;
